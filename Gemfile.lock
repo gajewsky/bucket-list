@@ -86,8 +86,6 @@ GEM
       sysexits (~> 1.1)
     i18n (0.7.0)
     ice_nine (0.11.2)
-    imdb (0.8.1)
-      nokogiri (>= 1.6.0)
     json (2.0.1)
     launchy (2.4.3)
       addressable (~> 2.3)
@@ -251,14 +249,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  imdb (~> 0.8)
   listen (~> 3.0.5)
   polishgeeks-dev-tools
   puma (~> 3.0)
   rails (~> 5.0.0)
   rspec-rails
   sqlite3
-  tzinfo-data
 
 BUNDLED WITH
    1.12.5
