@@ -10,8 +10,6 @@ class Movie < ApplicationRecord
     MoviesImportService.new(csv_file).call
   end
 
-  private
-
   # Return csv file
   def self.csv_file
     ActionDispatch::Http::UploadedFile.new(

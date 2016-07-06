@@ -1,0 +1,12 @@
+defaults: &defaults
+  untappd:
+    client_id: token
+    client_secret: token
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
