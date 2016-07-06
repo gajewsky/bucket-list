@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160704175315) do
+ActiveRecord::Schema.define(version: 20160706154523) do
+
+  create_table "beers", force: :cascade do |t|
+    t.integer  "untappd_id"
+    t.string   "name"
+    t.string   "label_url"
+    t.string   "country"
+    t.string   "brewery"
+    t.string   "style"
+    t.float    "abv"
+    t.float    "ibu"
+    t.float    "user_rate"
+    t.date     "drink_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["untappd_id"], name: "index_beers_on_untappd_id"
+  end
 
   create_table "movies", force: :cascade do |t|
     t.string   "imdb_id"

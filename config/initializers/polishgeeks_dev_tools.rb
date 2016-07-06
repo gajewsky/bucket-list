@@ -3,6 +3,7 @@ if %w( test development ).include?(Rails.env)
     config.brakeman = false
     config.haml_lint = false
     config.rubycritic = false
+    config.rspec_files_structure = false
     config.final_blank_line_ignored = %W(
       db/test.sqlite3
       db/development.sqlite3

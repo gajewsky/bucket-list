@@ -6,7 +6,7 @@ class Movie < ApplicationRecord
   validates :seen_date, presence: true
 
   # Cals MoviesImportService and save to db all imported imdb movies
-  def self.csv_import
+  def self.import
     MoviesImportService.new(csv_file).call
   end
 
