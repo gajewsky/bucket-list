@@ -15,16 +15,15 @@ class MoviesImportService
 
   private
 
+  def import_movie(hash)
+    return if Movie.find_by(imdb_id: hash[:const])
+    Movie.create(movie_hash(hash))
+  end
+
   def parse_csv
     csv = uploaded_file.read
     parsed_csv = CSV.new(csv, headers: true, header_converters: :symbol)
     parsed_csv.to_a.map(&:to_hash)
-  end
-
-  def import_movie(hash)
-    movie = Movie.find_or_initialize_by(imdb_id: hash[:const])
-    movie.update(movie_hash(hash))
-    movie
   end
 
   def movie_hash(hash)

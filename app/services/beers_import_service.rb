@@ -16,6 +16,11 @@ class BeersImportService
 
   private
 
+  def import_beer(hash)
+    return if Beer.find_by(untappd_id: hash[:untappd_id])
+    Beer.create(hash)
+  end
+
   def call_untappd(offset)
     self.class.get("/user/beers/#{System::Settings.untappd.username}", options(offset))
   end
@@ -46,11 +51,5 @@ class BeersImportService
       user_rate: response['rating_score'],
       drink_date: response['first_created_at']
     }
-  end
-
-  def import_beer(hash)
-    beer = Beer.find_or_initialize_by(untappd_id: hash[:untappd_id])
-    beer.update(hash)
-    beer
   end
 end
