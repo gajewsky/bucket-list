@@ -3,7 +3,11 @@ defaults: &defaults
     client_id: token
     client_secret: token
     username: username
-    
+
+  strava:
+    client_secret: token
+    access_token: token
+
 development:
   <<: *defaults
 

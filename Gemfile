@@ -5,6 +5,7 @@ gem 'sqlite3'
 gem 'puma', '~> 3.0'
 gem 'settingslogic'
 gem 'httparty'
+gem 'strava-api-v3'
 
 group :development, :test do
   gem 'polishgeeks-dev-tools'
