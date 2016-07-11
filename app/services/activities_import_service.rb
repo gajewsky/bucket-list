@@ -1,4 +1,4 @@
-# The service responsible for importing activities from strava api file
+# The service responsible for importing activities from strava api
 class ActivitiesImportService
   attr_reader :client
   def initialize

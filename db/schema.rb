@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160707190027) do
+ActiveRecord::Schema.define(version: 20160711193613) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "strava_id"
@@ -40,6 +40,21 @@ ActiveRecord::Schema.define(version: 20160707190027) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["untappd_id"], name: "index_beers_on_untappd_id"
+  end
+
+  create_table "books", force: :cascade do |t|
+    t.integer  "goodreads_id"
+    t.string   "title"
+    t.string   "image_url"
+    t.integer  "num_pages"
+    t.integer  "publication_year"
+    t.float    "average_rating"
+    t.string   "author"
+    t.float    "user_rate"
+    t.date     "started_at"
+    t.date     "read_at"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "movies", force: :cascade do |t|

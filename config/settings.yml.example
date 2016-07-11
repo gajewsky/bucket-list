@@ -8,6 +8,11 @@ defaults: &defaults
     client_secret: token
     access_token: token
 
+  goodreads:
+    key: token
+    secret: token
+    user_id: token
+
 development:
   <<: *defaults
 
