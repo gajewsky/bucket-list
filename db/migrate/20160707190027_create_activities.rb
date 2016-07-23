@@ -10,8 +10,6 @@ class CreateActivities < ActiveRecord::Migration[5.0]
       t.float :average_speed
       t.float :average_heartrate
       t.float :max_heartrate
-
-
       t.timestamps
     end
   end
