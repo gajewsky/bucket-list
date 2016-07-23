@@ -4,6 +4,7 @@ gem 'rails', '~> 5.0.0'
 gem 'sqlite3'
 gem 'puma', '~> 3.0'
 gem 'settingslogic'
+gem 'carrierwave'
 
 # Apis
 gem 'httparty'
