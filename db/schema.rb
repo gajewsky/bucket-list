@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160711193613) do
+ActiveRecord::Schema.define(version: 20160723183944) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "strava_id"
@@ -55,6 +55,39 @@ ActiveRecord::Schema.define(version: 20160711193613) do
     t.date     "read_at"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.integer  "challange_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["challange_id"], name: "index_categories_on_challange_id"
+  end
+
+  create_table "challanges", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.date     "completed_at"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "media", force: :cascade do |t|
+    t.string   "file_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "milestones", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.date     "completed_at"
+    t.integer  "challange_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["challange_id"], name: "index_milestones_on_challange_id"
   end
 
   create_table "movies", force: :cascade do |t|
