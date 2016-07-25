@@ -1,8 +1,8 @@
-module Achievement
+module Achievements
   class Challange < ApplicationRecord
     validates :title, presence: true
-    
-    has_many :categories
+
+    belongs_to :category
     has_many :milestones
   end
 end

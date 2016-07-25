@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160723183944) do
+ActiveRecord::Schema.define(version: 20160725175524) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "strava_id"
@@ -60,10 +60,8 @@ ActiveRecord::Schema.define(version: 20160723183944) do
   create_table "categories", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.integer  "challange_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.index ["challange_id"], name: "index_categories_on_challange_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "challanges", force: :cascade do |t|
@@ -72,6 +70,8 @@ ActiveRecord::Schema.define(version: 20160723183944) do
     t.date     "completed_at"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "category_id"
+    t.index ["category_id"], name: "index_challanges_on_category_id"
   end
 
   create_table "media", force: :cascade do |t|
