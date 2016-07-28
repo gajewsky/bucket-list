@@ -1,5 +1,5 @@
 module Achievements
-  class ApplicationController < ActionController::API
+  class AchievementsController < ::ApplicationController
     def relationship_params
       associations = {}
       params.dig(:data, :relationships).each do |key, value|

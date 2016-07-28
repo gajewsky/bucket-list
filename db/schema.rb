@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160725175524) do
+ActiveRecord::Schema.define(version: 20160728161044) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "strava_id"
@@ -24,6 +24,13 @@ ActiveRecord::Schema.define(version: 20160725175524) do
     t.float    "max_heartrate"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+  end
+
+  create_table "auth_tokens", force: :cascade do |t|
+    t.string   "email"
+    t.string   "token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "beers", force: :cascade do |t|

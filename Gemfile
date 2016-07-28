@@ -9,6 +9,7 @@ gem 'rack-cors'
 gem 'active_model_serializers'
 
 # Apis
+gem 'google-api-client', '~> 0.9.pre4'
 gem 'httparty'
 gem 'strava-api-v3'
 gem 'goodreads'

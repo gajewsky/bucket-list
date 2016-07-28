@@ -1,5 +1,5 @@
 module Achievements
-  class CategoriesController < ApplicationController
+  class CategoriesController < AchievementsController
     before_action :set_category, only: [:show, :update, :destroy]
 
     # GET /categories

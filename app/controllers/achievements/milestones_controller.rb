@@ -1,5 +1,5 @@
 module Achievements
-  class MilestonesController < ApplicationController
+  class MilestonesController < AchievementsController
     before_action :set_milestone, only: [:show, :update, :destroy]
 
     # GET /milestones

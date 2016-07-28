@@ -8,6 +8,10 @@ defaults: &defaults
     client_secret: token
     access_token: token
 
+  google:
+    client_id: token 
+    client_secret: token
+
   goodreads:
     key: token
     secret: token

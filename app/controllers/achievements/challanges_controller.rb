@@ -1,5 +1,5 @@
 module Achievements
-  class ChallangesController < ApplicationController
+  class ChallangesController < AchievementsController
     before_action :set_challange, only: [:show, :update, :destroy]
 
     # GET /challanges
