@@ -1,0 +1,31 @@
+<table class="table table-striped table-sm">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>#Milestones</th>
+      <th>Completed</th>
+      <th>Created</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each model as |challange|}}
+      <tr>
+        <td>{{challange.title}}</td>
+        <td>{{challange.description}}</td>
+        <td>{{challange.milestones.length}}</td>
+        <td>{{challange.completedAt}}</td>
+        <td>{{challange.createdAt}}</td>
+        <td>
+        </td>
+      </tr>
+    {{else}}
+      <tr>
+        <td colspan="5" style="text-align: center; font-style: italic">
+          You have no challanges yet.
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
