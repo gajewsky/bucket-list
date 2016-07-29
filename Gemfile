@@ -5,7 +5,7 @@ gem 'sqlite3'
 gem 'puma', '~> 3.0'
 gem 'settingslogic'
 gem 'carrierwave'
-gem 'rack-cors'
+gem 'rack-cors', require: 'rack/cors'
 gem 'active_model_serializers'
 
 # Apis

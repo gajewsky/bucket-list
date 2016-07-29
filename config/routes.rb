@@ -5,4 +5,6 @@ Rails.application.routes.draw do
     resources :milestones
     resources :categories
   end
+
+  resources :authorizations, only: [:create]
 end
