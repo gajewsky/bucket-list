@@ -28,6 +28,7 @@ module Achievements
 
     # PATCH/PUT /challanges/1
     def update
+      binding.pry
       if @challange.update(challange_params)
         set_relationships
         render json: @challange

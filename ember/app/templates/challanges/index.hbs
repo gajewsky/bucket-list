@@ -18,6 +18,9 @@
         <td>{{challange.completedAt}}</td>
         <td>{{challange.createdAt}}</td>
         <td>
+          {{#link-to 'challanges.show' challange}}Details{{/link-to}}
+          |
+          {{#link-to 'challanges.edit' challange}}Edit{{/link-to}}
         </td>
       </tr>
     {{else}}
