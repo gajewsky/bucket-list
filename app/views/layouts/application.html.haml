@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+    %meta{ content: "#3c8dbc", name: "theme-color"}/
+    %meta{ content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type'}/
+    %title Bucket List
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    %meta{ content: 'width=device-width, initial-scale=1', name: 'viewport'}/
+
+  %body.hold-transition.skin-blue.sidebar-mini
+    .wrapper
+      = render partial: 'layouts/header'
+      = yield
+    = render partial: 'layouts/footer'

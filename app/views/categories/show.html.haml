@@ -1,0 +1,11 @@
+.container
+  %section.content-header
+    %h1
+      = @category.title
+      %small= @category.description
+
+    .page-footer
+      .text-center
+        = link_to 'back', categories_path, class: 'btn btn-default'
+        = link_to 'edit', edit_category_path(@category), class: 'btn btn-default'
+        = link_to 'destroy', category_path(@category), method: 'delete', data: { confirm: 'Are you sure?'}, class: 'btn btn-danger'

@@ -6,7 +6,19 @@ gem 'puma', '~> 3.0'
 gem 'settingslogic'
 gem 'carrierwave'
 gem 'rack-cors', require: 'rack/cors'
-gem 'active_model_serializers'
+
+# UI
+gem 'sass-rails', '~> 5.0'
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-sass-extras'
+gem 'haml-rails'
+gem 'jquery-rails'
+gem 'turbolinks', '~> 5'
+gem 'jbuilder', '~> 2.5'
+gem 'cocoon'
+gem 'font-awesome-sass'
+gem 'simple_form'
+
 
 # Apis
 gem 'google-api-client', '~> 0.9.pre4'

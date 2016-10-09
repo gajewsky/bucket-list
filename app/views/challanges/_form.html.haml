@@ -1,0 +1,13 @@
+.row
+  .col-md-8
+    = simple_form_for @challange, html: { class: 'form-model' } do |challange|
+      = challange.error_notification
+      .box.box-primary
+        .box-body
+          .form-group
+            = challange.input :title
+            = challange.input :description
+            %br
+            %br
+            = challange.submit nil, class: 'btn btn-primary'
+            = link_to 'cancel', challanges_path, class: 'btn btn-default'

@@ -1,0 +1,17 @@
+.container
+  %section.content-header
+    %h1
+      = @challange.title
+      %small= @challange.description
+  %section.content
+    .row
+      %h4 Milestones
+      .list-group
+      - @challange.milestones.each do |milestone|
+        = link_to milestone.title, milestone_path(milestone), class: 'list-group-item'
+
+    .page-footer
+      .text-center
+        = link_to 'back', categories_path, class: 'btn btn-default'
+        = link_to 'edit', edit_challange_path(@challange), class: 'btn btn-default'
+        = link_to 'destroy', challange_path(@challange), method: 'delete', data: { confirm: 'Are you sure?'}, class: 'btn btn-danger'
