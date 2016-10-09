@@ -1,59 +1,55 @@
 module Achievements
-  class CategoriesController < AchievementsController
-    before_action :set_category, only: [:show, :update, :destroy]
+  class CategoriesController < ::ApplicationController
+    before_filter :set_category, only: [:show, :update, :destroy]
 
-    # GET /categories
+    # GET /achievements/categories
+    # GET /achievements/categories.json
     def index
-      @categories = Category.all
-
-      render json: @categories
+      @categories = Achievements::Category.all
     end
 
-    # GET /categories/1
+    # GET /achievements/categories/1
+    # GET /achievements/categories/1.json
     def show
-      render json: @category
     end
 
-    # POST /categories
+    # POST /achievements/categories
+    # POST /achievements/categories.json
     def create
-      @category = Category.new(category_params)
-      set_relationships
+      @category = Achievements::Category.new(category_params)
+
       if @category.save
-        render json: @category, status: :created, location: category_url(@category)
+        render :show, status: :created, location: @category
       else
-        render json: { errors: [@category.errors] }, status: :unprocessable_entity
+        render json: @category.errors, status: :unprocessable_entity
       end
     end
 
-    # PATCH/PUT /categories/1
+    # PATCH/PUT /achievements/categories/1
+    # PATCH/PUT /achievements/categories/1.json
     def update
       if @category.update(category_params)
-        set_relationships
-        render json: @category
+        render :show, status: :ok, location: @category
       else
-        render json: { errors: [@category.errors] }, status: :unprocessable_entity
+        render json: @category.errors, status: :unprocessable_entity
       end
     end
 
-    # DELETE /categories/1
+    # DELETE /achievements/categories/1
+    # DELETE /achievements/categories/1.json
     def destroy
       @category.destroy
     end
 
     private
-
-    def set_relationships
-      @category.challanges = relationship_params[:challanges] || []
-    end
-
     # Use callbacks to share common setup or constraints between actions.
     def set_category
-      @category = Category.find(params[:id])
+      @category = Achievements::Category.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
+    # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
-      params.require(:data).require(:attributes).permit(:title, :description)
+      params.fetch(:category, {})
     end
   end
 end

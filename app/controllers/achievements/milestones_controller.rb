@@ -1,60 +1,53 @@
-module Achievements
-  class MilestonesController < AchievementsController
-    before_action :set_milestone, only: [:show, :update, :destroy]
+class Achievements::MilestonesController < ApplicationController
+  before_action :set_milestone, only: [:show, :update, :destroy]
 
-    # GET /milestones
-    def index
-      @milestones = Milestone.all
+  # GET /achievements/milestones
+  # GET /achievements/milestones.json
+  def index
+    @milestones = Achievements::Milestone.all
+  end
 
-      render json: @milestones
-    end
+  # GET /achievements/milestones/1
+  # GET /achievements/milestones/1.json
+  def show
+  end
 
-    # GET /milestones/1
-    def show
-      render json: @milestone
-    end
+  # POST /achievements/milestones
+  # POST /achievements/milestones.json
+  def create
+    @milestone = Achievements::Milestone.new(milestone_params)
 
-    # POST /milestones
-    def create
-      @milestone = Milestone.new(milestone_params)
-      set_relationships
-
-      if @milestone.save
-        render json: @milestone, status: :created, location: milestone_url(@milestone)
-      else
-        render json: { errors: [@milestone.errors] }, status: :unprocessable_entity
-      end
-    end
-
-    # PATCH/PUT /milestones/1
-    def update
-      if @milestone.update(milestone_params)
-        set_relationships
-        render json: @milestone
-      else
-        render json: { errors: [@milestone.errors] }, status: :unprocessable_entity
-      end
-    end
-
-    # DELETE /milestones/1
-    def destroy
-      @milestone.destroy
-    end
-
-    private
-
-    def set_relationships
-      @milestone.challange = relationship_params[:challange] if relationship_params[:challange]
-    end
-
-    # Use callbacks to share common setup or constraints between actions.
-    def set_milestone
-      @milestone = Milestone.find(params[:id])
-    end
-
-    # Only allow a trusted parameter "white list" through.
-    def milestone_params
-      params.require(:data).require(:attributes).permit(:title, :description, :completed_at, :challange_id)
+    if @milestone.save
+      render :show, status: :created, location: @milestone
+    else
+      render json: @milestone.errors, status: :unprocessable_entity
     end
   end
+
+  # PATCH/PUT /achievements/milestones/1
+  # PATCH/PUT /achievements/milestones/1.json
+  def update
+    if @milestone.update(milestone_params)
+      render :show, status: :ok, location: @milestone
+    else
+      render json: @milestone.errors, status: :unprocessable_entity
+    end
+  end
+
+  # DELETE /achievements/milestones/1
+  # DELETE /achievements/milestones/1.json
+  def destroy
+    @milestone.destroy
+  end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_milestone
+      @milestone = Achievements::Milestone.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def milestone_params
+      params.fetch(:milestone, {})
+    end
 end
