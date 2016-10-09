@@ -1,0 +1,17 @@
+.box-body.table-responsive.no-padding
+  %table.table.table-sm.table-hover
+    %thead
+      %tr
+        %th Title
+        %th Description
+        %th
+    %tbody
+      - challanges.each do |challange|
+        %tr
+          %td= link_to challange.title, challange_path(challange)
+          %td= challange.description
+          %td
+            = link_to edit_challange_path(challange), class: 'btn btn-xs btn-warning',title: 'Edit', rel: 'tooltip' do
+              %i.fa.fa-pencil-square-o
+            = link_to challange_path(challange), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger', title: 'Remove', rel: 'tooltip' do
+              %i.fa.fa-trash

@@ -1,0 +1,9 @@
+.container
+  %section.content-header
+    %h1
+      Challanges
+      %small Listing of all challanges
+  %section.content
+    .container
+      .row
+        = render partial: 'challanges', locals: { challanges: @challanges }

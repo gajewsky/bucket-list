@@ -1,0 +1,12 @@
+.row
+  .col-md-8
+    = simple_form_for @category, html: { class: 'form-model' } do |category|
+      = category.error_notification
+      .box.box-primary
+        .box-body
+          .form-group
+            = category.input :title
+            = category.input :description
+            %br
+            = category.submit nil, class: 'btn btn-primary'
+            = link_to 'cancel', categories_path, class: 'btn btn-default'
