@@ -6,6 +6,7 @@ module Metrics
     validates :name, presence: true
     validates :distance, presence: true
     validates :start_date, presence: true
+    belongs_to :user
 
     def self.import
       ActivitiesImportService.new.call

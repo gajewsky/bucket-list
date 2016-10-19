@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160728161044) do
+ActiveRecord::Schema.define(version: 20161019143355) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "strava_id"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20160728161044) do
     t.float    "max_heartrate"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_activities_on_user_id"
   end
 
   create_table "auth_tokens", force: :cascade do |t|
@@ -46,7 +48,9 @@ ActiveRecord::Schema.define(version: 20160728161044) do
     t.date     "drink_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
     t.index ["untappd_id"], name: "index_beers_on_untappd_id"
+    t.index ["user_id"], name: "index_beers_on_user_id"
   end
 
   create_table "books", force: :cascade do |t|
@@ -62,6 +66,8 @@ ActiveRecord::Schema.define(version: 20160728161044) do
     t.date     "read_at"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_books_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -78,7 +84,9 @@ ActiveRecord::Schema.define(version: 20160728161044) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "category_id"
+    t.integer  "user_id"
     t.index ["category_id"], name: "index_challanges_on_category_id"
+    t.index ["user_id"], name: "index_challanges_on_user_id"
   end
 
   create_table "media", force: :cascade do |t|
@@ -110,7 +118,22 @@ ActiveRecord::Schema.define(version: 20160728161044) do
     t.date     "seen_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
     t.index ["imdb_id"], name: "index_movies_on_imdb_id"
+    t.index ["user_id"], name: "index_movies_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "email",                          null: false
+    t.string   "encrypted_password", limit: 128, null: false
+    t.string   "confirmation_token", limit: 128
+    t.string   "remember_token",     limit: 128, null: false
+    t.string   "untappd_username"
+    t.string   "goodreads_id"
+    t.index ["email"], name: "index_users_on_email"
+    t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 
 end

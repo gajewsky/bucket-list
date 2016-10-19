@@ -48,6 +48,7 @@ GEM
       descendants_tracker (~> 0.0.4)
       ice_nine (~> 0.11.0)
       thread_safe (~> 0.3, >= 0.3.1)
+    bcrypt (3.1.11)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -64,6 +65,10 @@ GEM
       json (>= 1.7)
       mime-types (>= 1.16)
       mimemagic (>= 0.3.0)
+    clearance (1.14.2)
+      bcrypt
+      email_validator (~> 1.4)
+      rails (>= 3.1)
     cocoon (1.2.9)
     codeclimate-engine-rb (0.3.1)
       virtus (~> 1.0)
@@ -78,6 +83,8 @@ GEM
     docile (1.1.5)
     domain_name (0.5.20160615)
       unf (>= 0.0.5, < 1.0.0)
+    email_validator (1.6.0)
+      activemodel
     equalizer (0.0.11)
     erubis (2.7.0)
     execjs (2.7.0)
@@ -373,6 +380,7 @@ DEPENDENCIES
   bootstrap-sass (~> 3.3.6)
   bootstrap-sass-extras
   carrierwave
+  clearance
   cocoon
   font-awesome-sass
   goodreads

@@ -10,7 +10,7 @@ class ChallangesController < ::ApplicationController
 
   def create
     @challange = Challange.new(challange_params)
-
+    @challange.user = current_user
     if @challange.save
       render :show, status: :created, location: @challange
     else

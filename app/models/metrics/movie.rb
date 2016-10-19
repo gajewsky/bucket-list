@@ -5,6 +5,7 @@ module Metrics
     validates :title, presence: true
     validates :user_rate, presence: true
     validates :seen_date, presence: true
+    belongs_to :user
 
     # Cals MoviesImportService and save to db all imported imdb movies
     def self.import

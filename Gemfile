@@ -6,6 +6,7 @@ gem 'puma', '~> 3.0'
 gem 'settingslogic'
 gem 'carrierwave'
 gem 'rack-cors', require: 'rack/cors'
+gem 'clearance'
 
 # UI
 gem 'sass-rails', '~> 5.0'
