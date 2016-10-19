@@ -1,6 +1,6 @@
 class Metrics::BooksController < ApplicationController
   def index
-    @metrics_books = Metrics::Book.all
+    @metrics_books = Metrics::Book.where(user: current_user)
   end
 
   def show

@@ -1,6 +1,6 @@
 class Metrics::MoviesController < ApplicationController
   def index
-    @metrics_movies = Metrics::Movie.all
+    @metrics_movies = Metrics::Movie.where(user: current_user)
   end
 
   def show

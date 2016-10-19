@@ -1,6 +1,6 @@
 class Metrics::BeersController < ApplicationController
   def index
-    @metrics_beers = Metrics::Beer.all
+    @metrics_beers = Metrics::Beer.where(user: current_user)
   end
 
   def show

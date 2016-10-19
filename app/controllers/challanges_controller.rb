@@ -2,7 +2,7 @@ class ChallangesController < ::ApplicationController
   before_action :set_challange, only: %i(show edit update destroy)
 
   def index
-    @challanges = Challange.all
+    @challanges = Challange.where(user: current_user)
   end
 
   def show

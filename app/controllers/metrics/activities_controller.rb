@@ -1,6 +1,6 @@
 class Metrics::ActivitiesController < ApplicationController
   def index
-    @metrics_activities = Metrics::Activity.all
+    @metrics_activities = Metrics::Activity.where(user: current_user)
   end
 
   def show
