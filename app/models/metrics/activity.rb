@@ -7,9 +7,5 @@ module Metrics
     validates :distance, presence: true
     validates :start_date, presence: true
     belongs_to :user
-
-    def self.import
-      ActivitiesImportService.new.call
-    end
   end
 end

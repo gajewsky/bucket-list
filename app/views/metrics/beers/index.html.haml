@@ -1,0 +1,9 @@
+.container
+  %section.content-header
+    %h1
+      Beers
+      %small Listing of all beers
+  %section.content
+    .container
+      .row
+        = render partial: 'beers', locals: { metrics_beers: @metrics_beers }

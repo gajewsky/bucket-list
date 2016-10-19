@@ -4,6 +4,11 @@ module Metrics
     include HTTParty
     base_uri 'https://api.untappd.com/v4/'
 
+    attr_reader :user
+    def initialize(user)
+      @user = user
+    end
+
     def call
       offset = 0
       loop do
@@ -23,7 +28,7 @@ module Metrics
     end
 
     def call_untappd(offset)
-      self.class.get("/user/beers/#{System::Settings.untappd.username}", options(offset))
+      self.class.get("/user/beers/#{user.untappd_username}", options(offset))
     end
 
     def options(offset)
@@ -50,7 +55,8 @@ module Metrics
         brewery: brewery['brewery_name'],
         country: brewery['country_name'],
         user_rate: response['rating_score'],
-        drink_date: response['first_created_at']
+        drink_date: response['first_created_at'],
+        user: user
       }
     end
   end

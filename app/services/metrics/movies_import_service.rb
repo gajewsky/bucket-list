@@ -2,10 +2,10 @@
 module Metrics
   # The service responsible for importing movies from imdb csv file
   class MoviesImportService
-    attr_reader :uploaded_file
-
-    def initialize(uploaded_file)
+    attr_reader :uploaded_file, :user
+    def initialize(uploaded_file, user)
       @uploaded_file = uploaded_file
+      @user = user
     end
 
     def call
@@ -37,7 +37,8 @@ module Metrics
         year: hash[:year],
         genres: hash[:genres],
         url: hash[:url],
-        seen_date: hash[:created]
+        seen_date: hash[:created],
+        user: user
       }
     end
   end

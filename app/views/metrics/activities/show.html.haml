@@ -1,0 +1,42 @@
+.container
+  %section.content-header
+    %h1
+      = @metrics_activity.name
+      %small= @metrics_activity.activity_type
+  %section.content
+    .row
+      .col-xs-6
+        .table-responsive
+          %table.table
+            %tr
+              %th{style: 'width:50%'} Strva ID:
+              %td= @metrics_activity.strava_id
+            %tr
+              %th Elapsed Time:
+              %td= @metrics_activity.elapsed_time
+            %tr
+              %th Distance:
+              %td= @metrics_activity.distance
+            %tr
+              %th Start Date:
+              %td= l @metrics_activity.start_date
+            %tr
+              %th Average Speed:
+              %td= @metrics_activity.average_speed
+            %tr
+              %th Average Heartrate:
+              %td= @metrics_activity.average_heartrate
+            %tr
+              %th Max Heartrate:
+              %td= @metrics_activity.max_heartrate
+            %tr
+              %th Created at:
+              %td= l @metrics_activity.created_at
+            %tr
+              %th Updated at:
+              %td= l @metrics_activity.updated_at
+
+
+    .page-footer
+      .text-center
+        = link_to 'back', metrics_activities_path, class: 'btn btn-default'

@@ -1,0 +1,13 @@
+.box-body.table-responsive.no-padding
+  %table.table.table-sm.table-hover
+    %thead
+      %tr
+        %th Name
+        %th Style
+        %th Drink Date
+    %tbody
+      - metrics_beers.each do |beer|
+        %tr
+          %td= link_to beer.name, metrics_beer_path(beer)
+          %td= beer.style
+          %td= l beer.drink_date

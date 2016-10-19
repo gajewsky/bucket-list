@@ -6,9 +6,5 @@ module Metrics
     validates :user_rate, presence: true
     validates :read_at, presence: true
     belongs_to :user
-
-    def self.import
-      BooksImportService.new.call
-    end
   end
 end

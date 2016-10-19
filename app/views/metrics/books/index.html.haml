@@ -1,0 +1,9 @@
+.container
+  %section.content-header
+    %h1
+      Books
+      %small Listing of all books
+  %section.content
+    .container
+      .row
+        = render partial: 'books', locals: { metrics_books: @metrics_books }

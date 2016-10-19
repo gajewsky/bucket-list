@@ -1,12 +1,13 @@
 module Metrics
   # The service responsible for importing books from goodreads api
   class BooksImportService
-    attr_reader :client
-    def initialize
+    attr_reader :client, :user
+    def initialize(user)
       @client = Goodreads::Client.new(
         api_key: System::Settings.goodreads.key,
         api_secret: System::Settings.goodreads.secret
       )
+      @user = user
     end
 
     def call
@@ -22,7 +23,7 @@ module Metrics
     private
 
     def books(page)
-      client.shelf(System::Settings.goodreads.user_id, 'read', page: page).books
+      client.shelf(user.goodreads_id, 'read', page: page).books
     end
 
     def import_book(hash)
@@ -41,7 +42,8 @@ module Metrics
         author: response.book.authors.author.name,
         user_rate: response.rating,
         started_at: response.started_at,
-        read_at: response.read_at
+        read_at: response.read_at,
+        user: user
       }
     end
   end

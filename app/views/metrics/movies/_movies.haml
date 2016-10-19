@@ -1,0 +1,13 @@
+.box-body.table-responsive.no-padding
+  %table.table.table-sm.table-hover
+    %thead
+      %tr
+        %th Title
+        %th Description
+        %th Seen Date
+    %tbody
+      - metrics_movies.each do |movie|
+        %tr
+          %td= link_to movie.title, metrics_movie_path(movie)
+          %td= movie.year
+          %td= movie.seen_date

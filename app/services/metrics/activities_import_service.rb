@@ -2,9 +2,10 @@
 module Metrics
   # The service responsible for importing activities from strava api
   class ActivitiesImportService
-    attr_reader :client
-    def initialize
+    attr_reader :client, :user
+    def initialize(user)
       @client = Strava::Api::V3::Client.new(access_token: System::Settings.strava.access_token)
+      @user = user
     end
 
     def call
@@ -38,7 +39,8 @@ module Metrics
         start_date: response['start_date'],
         average_speed: response['average_speed'],
         average_heartrate: response['average_heartrate'],
-        max_heartrate: response['max_heartrate']
+        max_heartrate: response['max_heartrate'],
+        user: user
       }
     end
   end

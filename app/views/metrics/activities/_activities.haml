@@ -1,0 +1,15 @@
+.box-body.table-responsive.no-padding
+  %table.table.table-sm.table-hover
+    %thead
+      %tr
+        %th Name
+        %th Activity Type
+        %th Distance
+        %th Start Date
+    %tbody
+      - metrics_activities.each do |activity|
+        %tr
+          %td= link_to activity.name, metrics_activity_path(activity)
+          %td= activity.activity_type
+          %td= activity.distance
+          %td= l activity.start_date

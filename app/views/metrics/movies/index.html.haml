@@ -1,0 +1,9 @@
+.container
+  %section.content-header
+    %h1
+      Movies
+      %small Listing of all movies
+  %section.content
+    .container
+      .row
+        = render partial: 'movies', locals: { metrics_movies: @metrics_movies }

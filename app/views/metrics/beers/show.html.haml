@@ -1,0 +1,42 @@
+.container
+  %section.content-header
+    %h1
+      = @metrics_beer.name
+      %small= @metrics_beer.brewery
+  %section.content
+    .row
+      .col-xs-6
+        .table-responsive
+          %table.table
+            %tr
+              %th{style: 'width:50%'} Label
+              %td= image_tag @metrics_beer.label_url
+            %tr
+              %th Country:
+              %td= @metrics_beer.country
+            %tr
+              %th Style:
+              %td= @metrics_beer.style
+            %tr
+              %th ABV:
+              %td= @metrics_beer.abv
+            %tr
+              %th IBU:
+              %td= @metrics_beer.ibu
+            %tr
+              %th User rate
+              %td= @metrics_beer.user_rate
+            %tr
+              %th Drink Date:
+              %td= l @metrics_beer.drink_date
+            %tr
+              %th Created at:
+              %td= l @metrics_beer.created_at
+            %tr
+              %th Updated at:
+              %td= l @metrics_beer.updated_at
+
+
+    .page-footer
+      .text-center
+        = link_to 'back', metrics_beers_path, class: 'btn btn-default'

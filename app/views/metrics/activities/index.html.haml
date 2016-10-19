@@ -1,0 +1,9 @@
+.container
+  %section.content-header
+    %h1
+      Activities
+      %small Listing of all activities
+  %section.content
+    .container
+      .row
+        = render partial: 'activities', locals: { metrics_activities: @metrics_activities }

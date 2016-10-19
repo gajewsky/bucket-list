@@ -6,9 +6,5 @@ module Metrics
     validates :user_rate, presence: true
     validates :drink_date, presence: true
     belongs_to :user
-
-    def self.import
-      BeersImportService.new.call
-    end
   end
 end

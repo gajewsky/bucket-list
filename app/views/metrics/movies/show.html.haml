@@ -1,0 +1,42 @@
+.container
+  %section.content-header
+    %h1
+      = @metrics_movie.title
+      %small= @metrics_movie.imdb_id
+  %section.content
+    .row
+      .col-xs-6
+        .table-responsive
+          %table.table
+            %tr
+              %th{style: 'width:50%'} Director:
+              %td= @metrics_movie.director
+            %tr
+              %th User Rate:
+              %td= @metrics_movie.user_rate
+            %tr
+              %th IMDB rate:
+              %td= @metrics_movie.imdb_rate
+            %tr
+              %th Runtime:
+              %td= @metrics_movie.runtime
+            %tr
+              %th Year:
+              %td= @metrics_movie.year
+            %tr
+              %th Genres:
+              %td= @metrics_movie.genres
+            %tr
+              %th Url:
+              %td= @metrics_movie.url
+            %tr
+              %th Seen Date:
+              %td= l @metrics_movie.seen_date
+            %tr
+              %th Created at:
+              %td= l @metrics_movie.created_at
+
+
+    .page-footer
+      .text-center
+        = link_to 'back', metrics_movies_path, class: 'btn btn-default'

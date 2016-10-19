@@ -1,0 +1,15 @@
+.box-body.table-responsive.no-padding
+  %table.table.table-sm.table-hover
+    %thead
+      %tr
+        %th Title
+        %th Author
+        %th Publication Year
+        %th Read Date
+    %tbody
+      - metrics_books.each do |book|
+        %tr
+          %td= link_to book.title, metrics_book_path(book)
+          %td= book.author
+          %td= book.publication_year
+          %td= book.read_at

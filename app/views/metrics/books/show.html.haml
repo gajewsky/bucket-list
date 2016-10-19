@@ -1,0 +1,45 @@
+.container
+  %section.content-header
+    %h1
+      = @metrics_book.title
+      %small= @metrics_book.author
+  %section.content
+    .row
+      .col-xs-6
+        .table-responsive
+          %table.table
+            %tr
+              %th{style: 'width:50%'} Cover:
+              %td= image_tag @metrics_book.image_url
+            %tr
+              %th Goodreads Id:
+              %td= @metrics_book.goodreads_id
+            %tr
+              %th Distance:
+              %td= @metrics_book.num_pages
+            %tr
+              %th Year:
+              %td= @metrics_book.publication_year
+            %tr
+              %th Average Rating:
+              %td= @metrics_book.average_rating
+            %tr
+              %th User Rate:
+              %td= @metrics_book.user_rate
+            %tr
+              %th Started at:
+              %td=@metrics_book.started_at
+            %tr
+              %th Read at:
+              %td= l @metrics_book.read_at
+            %tr
+              %th Created at:
+              %td= l @metrics_book.created_at
+            %tr
+              %th Updated at:
+              %td= l @metrics_book.updated_at
+
+
+    .page-footer
+      .text-center
+        = link_to 'back', metrics_books_path, class: 'btn btn-default'
