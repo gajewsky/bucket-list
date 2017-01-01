@@ -6,5 +6,10 @@ module Metrics
     validates :user_rate, presence: true
     validates :drink_date, presence: true
     belongs_to :user
+
+    def self.by_year(year)
+      year = DateTime.new(year)
+      where(drink_date: year.beginning_of_year..year.end_of_year)
+    end
   end
 end

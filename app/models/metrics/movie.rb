@@ -6,5 +6,10 @@ module Metrics
     validates :user_rate, presence: true
     validates :seen_date, presence: true
     belongs_to :user
+
+    def self.by_year(year)
+      year = DateTime.new(year)
+      where(seen_date: year.beginning_of_year..year.end_of_year)
+    end
   end
 end

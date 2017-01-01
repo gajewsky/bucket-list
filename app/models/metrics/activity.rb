@@ -7,5 +7,10 @@ module Metrics
     validates :distance, presence: true
     validates :start_date, presence: true
     belongs_to :user
+
+    def self.by_year(year)
+      year = DateTime.new(year)
+      where(start_date: year.beginning_of_year..year.end_of_year)
+    end
   end
 end
